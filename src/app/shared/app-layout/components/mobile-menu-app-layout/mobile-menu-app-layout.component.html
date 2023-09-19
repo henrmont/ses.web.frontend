@@ -1,0 +1,122 @@
+<section>
+  <div class="menu-logo">
+    <div style="width: 50px; height: 50px; background-color: red;"></div>
+    <h3 class="title">Logo</h3>
+  </div>
+  <mat-divider></mat-divider>
+  <!-- Menu portrait -->
+  <div *ngIf="device.isHandsetPortrait || device.isTablet" class="portrait">
+    <div class="menu">
+      <button mat-button class="menuBtn" routerLink="/dashboard" (click)="drawer.toggle()">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </button>
+      <button mat-button [matMenuTriggerFor]="menuTeste" class="menuBtn">
+        <mat-icon>link</mat-icon>
+        <span>Teste</span>
+      </button>
+      <mat-menu #menuTeste="matMenu">
+        <button mat-menu-item routerLink="/teste/page-one" (click)="drawer.toggle()">
+          <mat-icon>chevron_right</mat-icon>
+          <span>Página Um</span>
+        </button>
+        <button mat-menu-item routerLink="/teste/page-two" (click)="drawer.toggle()">
+          <mat-icon>chevron_right</mat-icon>
+          <span>Página Dois</span>
+        </button>
+        <button mat-menu-item routerLink="/teste/page-three" (click)="drawer.toggle()">
+          <mat-icon>chevron_right</mat-icon>
+          <span>Página Três</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>chevron_right</mat-icon>
+          <span>Página Quatro</span>
+        </button>
+      </mat-menu>
+      <button mat-button class="menuBtn">
+        <mat-icon>check</mat-icon>
+        <span>Menu Principal 3</span>
+      </button>
+      <button mat-button class="menuBtn">
+        <mat-icon>autorenew</mat-icon>
+        <span>Menu Principal 4</span>
+      </button>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="menu">
+      <button mat-button class="menuBtn">
+        <mat-icon>refresh</mat-icon>
+        <span>Menu Secundário 1</span>
+      </button>
+      <button mat-button class="menuBtn">
+        <mat-icon>offline_share</mat-icon>
+        <span>Menu Secundário 2</span>
+      </button>
+      <button mat-button class="menuBtn">
+        <mat-icon>sentiment_very_satisfied</mat-icon>
+        <span>Menu Secundário 3</span>
+      </button>
+      <button mat-button class="menuBtn">
+        <mat-icon>handshake</mat-icon>
+        <span>Menu Secundário 4</span>
+      </button>
+    </div>
+  </div>
+  <!-- menu landscape -->
+  <div *ngIf="device.isHandsetLandscape" class="landscape">
+    <div class="menu" style="border-right: 1px solid rgba(150,150,150,0.5);">
+      <button mat-button class="menuBtn" routerLink="/dashboard" (click)="drawer.toggle()">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </button>
+      <button mat-button [matMenuTriggerFor]="menuTeste" class="menuBtn">
+        <mat-icon>link</mat-icon>
+        <span>Teste</span>
+      </button>
+      <mat-menu #menuTeste="matMenu">
+        <button mat-menu-item routerLink="/teste/page-one" (click)="drawer.toggle()">
+          <mat-icon>chevron_right</mat-icon>
+          <span>Página Um</span>
+        </button>
+        <button mat-menu-item routerLink="/teste/page-two" (click)="drawer.toggle()">
+          <mat-icon>chevron_right</mat-icon>
+          <span>Página Dois</span>
+        </button>
+        <button mat-menu-item routerLink="/teste/page-three" (click)="drawer.toggle()">
+          <mat-icon>chevron_right</mat-icon>
+          <span>Página Três</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>chevron_right</mat-icon>
+          <span>Página Quatro</span>
+        </button>
+      </mat-menu>
+      <button mat-button class="menuBtn">
+        <mat-icon>check</mat-icon>
+        <span>Menu Principal 3</span>
+      </button>
+      <button mat-button class="menuBtn">
+        <mat-icon>autorenew</mat-icon>
+        <span>Menu Principal 4</span>
+      </button>
+    </div>
+    <div class="menu">
+      <button mat-button class="menuBtn">
+        <mat-icon>refresh</mat-icon>
+        <span>Menu Secundário 1</span>
+      </button>
+      <button mat-button class="menuBtn">
+        <mat-icon>offline_share</mat-icon>
+        <span>Menu Secundário 2</span>
+      </button>
+      <button mat-button class="menuBtn">
+        <mat-icon>sentiment_very_satisfied</mat-icon>
+        <span>Menu Secundário 3</span>
+      </button>
+      <button mat-button class="menuBtn">
+        <mat-icon>handshake</mat-icon>
+        <span>Menu Secundário 4</span>
+      </button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+<form class="box mat-elevation-z4" [formGroup]="formulario" [ngClass]="{ 'handset':device.isHandset, 'tablet':device.isTablet, 'web':device.isWeb }" (window:resize)="sharedService.setResolution(device)" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="email" formControlName="email">
+    <mat-icon matSuffix>mail_outline</mat-icon>
+    <!-- <mat-hint>Hint</mat-hint> -->
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Senha</mat-label>
+    <input matInput placeholder="senha" type="password" formControlName="password">
+    <mat-icon matSuffix>lock_outline</mat-icon>
+    <!-- <mat-hint>Hint</mat-hint> -->
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">ENTRAR</button>
+  <button mat-raised-button color="accent" class="btn" routerLink="/registrar">CRIAR CONTA</button>
+</form>

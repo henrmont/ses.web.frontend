@@ -1,0 +1,62 @@
+<section [ngClass]="{ 'expand':expand, 'compress':!expand }" class="mat-elevation-z8">
+  <div class="menu-logo">
+    <div style="width: 50px; height: 50px; background-color: red;"></div>
+    <h3 class="title" *ngIf="expand">Logo</h3>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="menu">
+    <button mat-button [ngClass]="{'expand':expand, 'compress':!expand}" routerLink="/dashboard">
+      <mat-icon>dashboard</mat-icon>
+      <span>Dashboard</span>
+    </button>
+    <button mat-button [ngClass]="{'expand':expand, 'compress':!expand}" [matMenuTriggerFor]="menuTeste">
+      <mat-icon>link</mat-icon>
+      <span>Teste</span>
+    </button>
+    <mat-menu #menuTeste="matMenu">
+      <button mat-menu-item routerLink="/teste/page-one">
+        <mat-icon>chevron_right</mat-icon>
+        <span>Página Um</span>
+      </button>
+      <button mat-menu-item routerLink="/teste/page-two">
+        <mat-icon>chevron_right</mat-icon>
+        <span>Página Dois</span>
+      </button>
+      <button mat-menu-item routerLink="/teste/page-three">
+        <mat-icon>chevron_right</mat-icon>
+        <span>Página Três</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>chevron_right</mat-icon>
+        <span>Página Quatro</span>
+      </button>
+    </mat-menu>
+    <button mat-button [ngClass]="{'expand':expand, 'compress':!expand}">
+      <mat-icon>check</mat-icon>
+      <span>Menu Principal 3</span>
+    </button>
+    <button mat-button [ngClass]="{'expand':expand, 'compress':!expand}">
+      <mat-icon>autorenew</mat-icon>
+      <span>Menu Principal 4</span>
+    </button>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="menu">
+    <button mat-button [ngClass]="{'expand':expand, 'compress':!expand}">
+      <mat-icon>refresh</mat-icon>
+      <span>Menu Secundário 1</span>
+    </button>
+    <button mat-button [ngClass]="{'expand':expand, 'compress':!expand}">
+      <mat-icon>offline_share</mat-icon>
+      <span>Menu Secundário 2</span>
+    </button>
+    <button mat-button [ngClass]="{'expand':expand, 'compress':!expand}">
+      <mat-icon>sentiment_very_satisfied</mat-icon>
+      <span>Menu Secundário 3</span>
+    </button>
+    <button mat-button [ngClass]="{'expand':expand, 'compress':!expand}">
+      <mat-icon>handshake</mat-icon>
+      <span>Menu Secundário 4</span>
+    </button>
+  </div>
+</section>

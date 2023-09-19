@@ -1,0 +1,17 @@
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+mat-icon {
+  margin-right: 20px !important;
+  transition: 0.4s;
+}
+
+mat-menu button {
+  display: flex !important;
+}
+
+.rotate {
+  transform: rotate(-180deg);
+}

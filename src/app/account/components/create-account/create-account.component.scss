@@ -1,0 +1,30 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  padding: 20px;
+  background-color: rgb(240,240,240);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn {
+  margin-top: 20px;
+}
+
+.handset {
+  width: 90%;
+}
+
+.tablet {
+  width: 300px;
+}
+
+.web {
+  width: 300px;
+}

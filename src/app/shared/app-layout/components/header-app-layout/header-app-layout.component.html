@@ -1,0 +1,25 @@
+<mat-toolbar color="primary" class="mat-elevation-z2">
+  <button mat-icon-button color="accent" (click)="drawer.toggle()" *ngIf="!device.isWeb">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <button mat-icon-button color="accent" *ngIf="device.isWeb" (click)="changeMenuSize()">
+    <mat-icon [ngClass]="{ 'rotate':!expand }">chevron_left</mat-icon>
+  </button>
+  <button mat-icon-button color="accent" [matMenuTriggerFor]="menu" *ngIf="!device.isWeb">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <button mat-raised-button color="accent" [matMenuTriggerFor]="menu" *ngIf="device.isWeb">
+    <mat-icon>person_outline</mat-icon>
+    {{user}}
+  </button>
+</mat-toolbar>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item disabled>
+    <mat-icon>voicemail</mat-icon>
+    <span>Check voice mail</span>
+  </button>
+  <button mat-menu-item (click)="sharedService.logout()">
+    <mat-icon>logout</mat-icon>
+    <span>Sair</span>
+  </button>
+</mat-menu>
