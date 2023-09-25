@@ -21,6 +21,10 @@ export class AccountService {
     return this.http.post<Account>(`${environment.apiUrl}/auth/login`, data)
   }
 
+  getAccount(data: Account): Observable<Account> {
+    return this.http.get<Account>(`${environment.apiUrl}/account/get/${data}`)
+  }
+
   // logoutAccount(): Observable<Account> {
   //   const requestOptions = {
   //     'Authorization': `Bearer ${window.localStorage.getItem('token')}`

@@ -12,6 +12,10 @@ import { Router } from '@angular/router';
 })
 export class CreateAccountComponent implements OnInit {
 
+  isPasswordChecked: boolean = false
+  isEmailExists: boolean = false
+  cpassword: string = ''
+
   formulario!: FormGroup
   device: Device = {
     isHandset: false,
@@ -33,17 +37,20 @@ export class CreateAccountComponent implements OnInit {
     this.formulario = this.formBuilder.group({
       email: [null, [Validators.required, Validators.email]],
       name: [null, [Validators.required]],
-      password: [null, [Validators.required, Validators.minLength(6)]]
+      password: [null, [Validators.required, Validators.minLength(6)]],
+      cpassword: [null, [Validators.required, Validators.minLength(6)]]
     })
   }
 
   onSubmit() {
     if (this.formulario.valid) {
       this.accountService.createAccount(this.formulario.value).subscribe({
-        next: () => {
-          this.sharedService.showMessage('Voto cadastrado com sucesso')
+        next: (response: any) => {
+          this.sharedService.showMessage(response.message)
         },
-        error: () => {},
+        error: (error) => {
+          this.sharedService.showMessage(error.message)
+        },
         complete: () => {
           this.router.navigate(['/'])
           // this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
@@ -53,6 +60,26 @@ export class CreateAccountComponent implements OnInit {
     } else {
       this.sharedService.showMessage('Formulário Inválido')
     }
+  }
+
+  checkPassword() {
+    if (this.formulario.get('password')?.value != this.formulario.get('cpassword')?.value) {
+      this.isPasswordChecked = true
+    } else {
+      this.isPasswordChecked = false
+    }
+  }
+
+  checkEmail() {
+    this.accountService.getAccount(this.formulario.get('email')?.value).subscribe({
+      next: (response: any) => {
+        if (response.data.length > 0) {
+          this.isEmailExists = true
+        } else {
+          this.isEmailExists = false
+        }
+      }
+    })
   }
 
 }

@@ -1,9 +1,9 @@
 <form class="box mat-elevation-z4" [formGroup]="formulario" [ngClass]="{ 'handset':device.isHandset, 'tablet':device.isTablet, 'web':device.isWeb }" (window:resize)="sharedService.setResolution(device)" (ngSubmit)="onSubmit()">
   <mat-form-field appearance="outline">
     <mat-label>Email</mat-label>
-    <input matInput placeholder="email" formControlName="email">
+    <input matInput placeholder="email" formControlName="email" (blur)="checkEmail()">
     <mat-icon matSuffix>mail_outline</mat-icon>
-    <!-- <mat-hint>Hint</mat-hint> -->
+    <mat-hint *ngIf="isEmailExists">Email já existe</mat-hint>
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Nome</mat-label>
@@ -15,8 +15,13 @@
     <mat-label>Senha</mat-label>
     <input matInput placeholder="senha" type="password" formControlName="password">
     <mat-icon matSuffix>lock_outline</mat-icon>
-    <!-- <mat-hint>Hint</mat-hint> -->
+    <mat-hint *ngIf="isPasswordChecked">Senha inválidas</mat-hint>
   </mat-form-field>
-  <button mat-raised-button color="primary" [disabled]="formulario.invalid" type="submit">CRIAR CONTA</button>
+  <mat-form-field appearance="outline">
+    <mat-label>Confirmar Senha</mat-label>
+    <input matInput placeholder="confirmar senha" type="password" formControlName="cpassword" (blur)="checkPassword()">
+    <mat-icon matSuffix>lock_outline</mat-icon>
+  </mat-form-field>
+  <button mat-raised-button color="primary" [disabled]="formulario.invalid || isPasswordChecked || isEmailExists" type="submit">CRIAR CONTA</button>
   <button mat-raised-button color="accent" class="btn" routerLink="/">VOLTAR</button>
 </form>

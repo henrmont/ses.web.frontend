@@ -33,7 +33,7 @@ export class AppLayoutComponent implements OnInit {
   ngOnInit(): void {
     this.route.data.subscribe({
       next: (response: any) => {
-        this.user = response.resolve.email
+        this.user = response.resolve.name
       }
     })
     if (window.localStorage.getItem('expand')) {
