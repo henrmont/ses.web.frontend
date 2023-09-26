@@ -63,7 +63,7 @@ export class CreateAccountComponent implements OnInit {
   }
 
   checkPassword() {
-    if (this.formulario.get('password')?.value != this.formulario.get('cpassword')?.value) {
+    if (this.formulario.get('password')?.value == this.formulario.get('cpassword')?.value) {
       this.isPasswordChecked = true
     } else {
       this.isPasswordChecked = false
