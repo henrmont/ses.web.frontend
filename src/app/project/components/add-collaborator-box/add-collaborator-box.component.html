@@ -1,0 +1,26 @@
+<mat-toolbar class="title" color="accent">
+  <span>Adicionar Colaborador ao Projeto</span>
+  <button mat-icon-button aria-label="Example icon button with a home icon" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+<form mat-dialog-content [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Colaborador</mat-label>
+    <input matInput
+           aria-label="State"
+           [matAutocomplete]="auto"
+           [formControl]="collaboratorCtrl">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let collaborator of filteredCollaborators | async | slice : 0 : 3" [value]="collaborator.name" (click)="onSelect(collaborator.id)">
+        <img alt="" class="example-option-img" src="https://material.angular.io/assets/img/examples/shiba1.jpg" height="40" width="40">
+        <span>{{collaborator.name}}</span> |
+        <small>{{collaborator.email}}</small>
+      </mat-option>
+    </mat-autocomplete>
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+  <div>
+    <button mat-raised-button color="primary" class="btn" type="submit" [disabled]="formulario.invalid">ADICIONAR COLABORADOR AO PROJETO</button>
+  </div>
+</form>

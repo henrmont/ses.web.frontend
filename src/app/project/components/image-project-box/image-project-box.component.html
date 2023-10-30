@@ -1,0 +1,28 @@
+<mat-toolbar class="title" color="accent">
+  <span>Alterar imagem do projeto</span>
+  <button mat-icon-button aria-label="Example icon button with a home icon" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+<div>
+  <image-cropper
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="true"
+    [aspectRatio]="4 / 4"
+    format="png"
+    output="base64"
+    [resizeToWidth]="600"
+    [resizeToHeight]="600"
+    (imageCropped)="imageCropped($event)"
+    (imageLoaded)="imageLoaded($event)"
+    (cropperReady)="cropperReady()"
+    (loadImageFailed)="loadImageFailed()"
+  ></image-cropper>
+
+  <!-- <img [src]="croppedImage" /> -->
+  <div style="padding: 20px;">
+    <button mat-raised-button color="primary" class="btn" (click)="onSubmit()">SALVAR IMAGEM DO PROJETO</button>
+  </div>
+</div>
+
+

@@ -1,0 +1,15 @@
+<mat-drawer-container class="container">
+  <mat-drawer #drawer mode="over" [ngClass]="{ 'handsetLandscape':device.isHandsetLandscape }" (window:resize)="sharedService.setResolution(device)">
+    <app-mobile-menu-layout [device]="device" [drawer]="drawer"></app-mobile-menu-layout>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-web-menu-layout *ngIf="device.isWeb" [expand]="expand" style="z-index: 20;"></app-web-menu-layout>
+    <div class="content">
+      <app-header-layout [drawer]="drawer" [device]="device" [user]="user" (menuEvent)="changeMenuSize($event)" style="z-index: 2;"></app-header-layout>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+      <app-footer-layout style="z-index: 2;"></app-footer-layout>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

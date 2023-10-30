@@ -12,6 +12,20 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatCardModule} from '@angular/material/card';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatTableModule} from '@angular/material/table';
+
+
+
+
+
+
+
 
 
 
@@ -29,7 +43,14 @@ import {MatMenuModule} from '@angular/material/menu';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule,
+    MatStepperModule,
+    MatAutocompleteModule,
+    MatChipsModule,
+    MatCardModule,
+    MatProgressBarModule,
+    MatTableModule
   ],
   exports: [
     MatToolbarModule,
@@ -42,7 +63,14 @@ import {MatMenuModule} from '@angular/material/menu';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule,
+    MatStepperModule,
+    MatAutocompleteModule,
+    MatChipsModule,
+    MatCardModule,
+    MatProgressBarModule,
+    MatTableModule
   ]
 })
 export class MaterialModule { }

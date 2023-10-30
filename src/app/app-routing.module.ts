@@ -28,15 +28,15 @@ const routes: Routes = [
     resolve: {resolve: authResolve}
   },
   {
-    path: 'teste',
-    loadChildren: () => import('./teste/teste.module').then(m => m.TesteModule),
+    path: 'projetos',
+    loadChildren: () => import('./project/project.module').then(m => m.ProjectModule),
     canActivate: [authGuard],
     resolve: {resolve: authResolve}
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

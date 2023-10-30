@@ -1,0 +1,22 @@
+<mat-card class="project-notifications">
+  <mat-card-header>
+    <mat-icon mat-card-avatar>notifications</mat-icon>
+    <mat-card-title>NOTIFICAÇÕES</mat-card-title>
+    <mat-card-subtitle *ngIf="notifications.length == 0">Nenhuma atualização</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let notification of notifications">
+        <div mat-card-avatar matListItemIcon class="example-header-image"></div>
+        <div matListItemTitle>{{notification.user.name}} - {{notification.created_at | date: 'dd/MM/YYYY'}} as {{notification.created_at | date: 'HH:mm'}}</div>
+        <div matListItemLine style="width: 600px;">{{notification.message}}</div>
+      </mat-list-item>
+    </mat-list>
+    <mat-divider></mat-divider>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-icon-button (click)="notificationsProject()">
+      <mat-icon>more_horiz</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

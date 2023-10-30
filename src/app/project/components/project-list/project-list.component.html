@@ -1,0 +1,35 @@
+<div class="grid">
+  <div *ngFor="let item of projects">
+    <mat-card class="project-card">
+      <div>
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{item.name}}</mat-card-title>
+          <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+        </mat-card-header>
+        <img mat-card-image *ngIf="item.logo" [src]="item.logo" alt="Photo of a Shiba Inu">
+        <img mat-card-image *ngIf="!item.logo" src="assets/img/blank_project.png" style="opacity: 0.6;" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>{{item.description}}</p>
+        </mat-card-content>
+      </div>
+      <mat-card-actions>
+        <button mat-icon-button color="primary" [routerLink]="item.id">
+          <mat-icon>visibility</mat-icon>
+          <!-- VER -->
+        </button>
+        <button mat-icon-button color="primary" (click)="editProject(item.id)">
+          <mat-icon>edit</mat-icon>
+          <!-- EDITAR -->
+        </button>
+        <button mat-icon-button color="warn">
+          <mat-icon>delete_outline</mat-icon>
+          <!-- EXCLUIR -->
+        </button>
+      </mat-card-actions>
+    </mat-card>
+    <!-- <span>{{item.name}}</span>
+    <img src="assets/img/blank_project.png">
+    <p>{{item.description}}</p> -->
+  </div>
+</div>

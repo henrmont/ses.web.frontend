@@ -1,0 +1,52 @@
+<mat-toolbar class="title" color="accent">
+  <span>Novo Projeto</span>
+  <button mat-icon-button aria-label="Example icon button with a home icon" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+<!-- <div class="title">
+  <h1 mat-dialog-title>Novo Projeto</h1>
+</div> -->
+<form mat-dialog-content [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Nome do projeto</mat-label>
+      <input matInput placeholder="Digite um nome para o projeto" formControlName="name">
+      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+      <!-- <mat-hint>Hint</mat-hint> -->
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Descrição do projeto</mat-label>
+      <textarea matInput placeholder="Digite uma descrição para o projeto" formControlName="description"></textarea>
+    </mat-form-field>
+  </div>
+
+  <!-- <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Colaboradores</mat-label>
+      <mat-chip-grid #chipGrid aria-label="Collaborator selection">
+        <mat-chip-row *ngFor="let collaborator of collaborators" (removed)="remove(collaborator)">
+          {{collaborator}}
+          <button matChipRemove [attr.aria-label]="'remove ' + collaborator">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip-row>
+      </mat-chip-grid>
+      <input placeholder="Buscar colaborador" #collaboratorInput [formControl]="collaboratorCtrl"
+        [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="add($event)"/>
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let collaborator of filteredCollaborator | async | slice : 0 : 3" [value]="collaborator">
+          {{collaborator}}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div> -->
+  <div>
+    <button mat-raised-button color="primary" class="btn" type="submit" [disabled]="formulario.invalid">CADASTRAR PROJETO</button>
+  </div>
+</form>

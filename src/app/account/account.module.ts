@@ -7,6 +7,7 @@ import { LoginAccountComponent } from './components/login-account/login-account.
 import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { MaterialModule } from '../material/material.module';
 import { AppRoutingModule } from '../app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,9 @@ import { AppRoutingModule } from '../app-routing.module';
     CommonModule,
     MaterialModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     LoginAccountComponent

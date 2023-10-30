@@ -1,0 +1,11 @@
+<mat-card class="project-image">
+  <img mat-card-image *ngIf="project.logo" [src]="project.logo" alt="Photo of a Shiba Inu">
+  <img mat-card-image *ngIf="!project.logo" src="assets/img/blank_project.png" style="width: 80%; opacity: 0.6; margin: 20px auto;" alt="Photo of a Shiba Inu">
+  <mat-card-actions align="end">
+    <input type="file" class="file-input"
+       (change)="onFileSelected($event)" #fileUpload>
+    <button mat-icon-button (click)="fileUpload.click()">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
