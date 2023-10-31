@@ -8,8 +8,8 @@
     <mat-list>
       <mat-list-item *ngFor="let collaborator of collaborators">
         <div mat-card-avatar matListItemIcon class="example-header-image"></div>
-        <div matListItemTitle>{{collaborator.name}}</div>
-        <div matListItemLine>{{collaborator.email}}</div>
+        <div matListItemTitle>{{collaborator.user.name}}</div>
+        <div matListItemLine>{{collaborator.user.email}}</div>
       </mat-list-item>
       <mat-divider></mat-divider>
     </mat-list>
@@ -18,7 +18,7 @@
     <button mat-icon-button (click)="addCollaboratorProject()">
       <mat-icon>add</mat-icon>
     </button>
-    <button mat-icon-button (click)="collaboratorsProject()">
+    <button mat-icon-button (click)="collaboratorsProject()" [disabled]="collaborators.length == 0">
       <mat-icon>edit</mat-icon>
     </button>
   </mat-card-actions>

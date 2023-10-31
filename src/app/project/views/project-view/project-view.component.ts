@@ -3,8 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectService } from '../../project.service';
 import { Project } from '../../project.model';
-import { LinkProjectBoxComponent } from '../../components/link-project-box/link-project-box.component';
-import { CollaboratorsBoxComponent } from '../../components/collaborators-box/collaborators-box.component';
 
 @Component({
   selector: 'app-project-view',
@@ -20,7 +18,6 @@ export class ProjectViewComponent implements OnInit {
     url_production: null,
     url_git: null,
     logo: null,
-    collaborators: null,
   }
   currentDate = new Date();
 
@@ -33,7 +30,6 @@ export class ProjectViewComponent implements OnInit {
   ngOnInit(): void {
     this.projectService.getProject(this.route.snapshot.paramMap.get('id')).subscribe({
       next: (response: any) => {
-        console.log(response.data)
         this.project = response.data
       }
     })

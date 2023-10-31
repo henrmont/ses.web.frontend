@@ -1,5 +1,5 @@
 <mat-toolbar class="title" color="accent">
-  <span>Colaboradores do Projeto</span>
+  <span>Links do Projeto</span>
   <button mat-icon-button aria-label="Example icon button with a home icon" mat-dialog-close>
     <mat-icon>close</mat-icon>
   </button>
@@ -12,8 +12,8 @@
   <!-- Position Column -->
   <ng-container matColumnDef="image">
     <!-- <th mat-header-cell *matHeaderCellDef> No. </th> -->
-    <td mat-cell *matCellDef="let element" style="width: 20%;">
-      <div mat-card-avatar matListItemIcon class="example-header-image" style="margin: auto auto;"></div>
+    <td mat-cell *matCellDef="let element" style="width: 20%; text-align: center;">
+      <mat-icon style="color: rgb(150,150,150);">link</mat-icon>
     </td>
   </ng-container>
 
@@ -23,8 +23,8 @@
     <td mat-cell *matCellDef="let element" style="width: 60%;">
       <mat-list>
         <mat-list-item>
-          <div matListItemTitle>{{element.user.name}}</div>
-          <div matListItemLine>{{element.user.email}}</div>
+          <div matListItemTitle>{{element.url}}</div>
+          <div matListItemLine>{{element.description}}</div>
         </mat-list-item>
       </mat-list>
     </td>
@@ -43,6 +43,3 @@
   <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-
-
-

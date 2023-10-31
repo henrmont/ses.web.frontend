@@ -9,7 +9,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { EditProjectBoxComponent } from './components/edit-project-box/edit-project-box.component';
 import { ProjectsViewComponent } from './views/projects-view/projects-view.component';
-import { LinkProjectBoxComponent } from './components/link-project-box/link-project-box.component';
 import { CollaboratorsBoxComponent } from './components/collaborators-box/collaborators-box.component';
 import { ProjectLinksCardComponent } from './components/project-links-card/project-links-card.component';
 import { ProjectInfoCardComponent } from './components/project-info-card/project-info-card.component';
@@ -19,7 +18,9 @@ import { ImageProjectBoxComponent } from './components/image-project-box/image-p
 import { ProjectCollaboratorsCardComponent } from './components/project-collaborators-card/project-collaborators-card.component';
 import { AddCollaboratorBoxComponent } from './components/add-collaborator-box/add-collaborator-box.component';
 import { ProjectNotificationCardComponent } from './components/project-notification-card/project-notification-card.component';
-import { NotificationBoxComponent } from './components/notification-box/notification-box.component';
+import { AddLinkBoxComponent } from './components/add-link-box/add-link-box.component';
+import { LinksProjectBoxComponent } from './components/links-project-box/links-project-box.component';
+import { NotificationsBoxComponent } from './components/notifications-box/notifications-box.component';
 
 
 @NgModule({
@@ -29,7 +30,6 @@ import { NotificationBoxComponent } from './components/notification-box/notifica
     ProjectListComponent,
     EditProjectBoxComponent,
     ProjectsViewComponent,
-    LinkProjectBoxComponent,
     CollaboratorsBoxComponent,
     ProjectLinksCardComponent,
     ProjectInfoCardComponent,
@@ -38,7 +38,9 @@ import { NotificationBoxComponent } from './components/notification-box/notifica
     ProjectCollaboratorsCardComponent,
     AddCollaboratorBoxComponent,
     ProjectNotificationCardComponent,
-    NotificationBoxComponent
+    AddLinkBoxComponent,
+    LinksProjectBoxComponent,
+    NotificationsBoxComponent
   ],
   imports: [
     CommonModule,

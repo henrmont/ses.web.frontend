@@ -1,8 +1,8 @@
-import { NotificationBoxComponent } from './../notification-box/notification-box.component';
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../project.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { NotificationsBoxComponent } from '../notifications-box/notifications-box.component';
 
 @Component({
   selector: 'app-project-notification-card',
@@ -12,6 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class ProjectNotificationCardComponent implements OnInit {
 
   notifications!: any
+  allNotifications!: any
   currentDate = new Date();
 
   constructor(
@@ -26,14 +27,22 @@ export class ProjectNotificationCardComponent implements OnInit {
         this.notifications = response.data
       }
     })
+    this.projectService.getAllNotifications(this.route.snapshot.paramMap.get('id')).subscribe({
+      next: (response: any) => {
+        this.allNotifications = response.data
+      }
+    })
   }
 
   notificationsProject() {
-    this.dialog.open(NotificationBoxComponent, {
+    this.dialog.open(NotificationsBoxComponent, {
       disableClose: true,
       autoFocus: false,
       width: '30%',
-      height: 'auto'
+      height: 'auto',
+      data: {
+        notifications: this.allNotifications
+      }
     })
   }
 

@@ -3,16 +3,17 @@ import { Project } from '../../project.model';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectService } from '../../project.service';
 import { MatDialog } from '@angular/material/dialog';
-import { LinkProjectBoxComponent } from '../link-project-box/link-project-box.component';
+import { AddLinkBoxComponent } from '../add-link-box/add-link-box.component';
+import { LinksProjectBoxComponent } from '../links-project-box/links-project-box.component';
 
 @Component({
   selector: 'app-project-links-card',
   templateUrl: './project-links-card.component.html',
   styleUrls: ['./project-links-card.component.scss']
 })
-export class ProjectLinksCardComponent {
+export class ProjectLinksCardComponent implements OnInit {
 
-  @Input() project!: Project
+  links!: any
 
   constructor(
     private route: ActivatedRoute,
@@ -20,14 +21,34 @@ export class ProjectLinksCardComponent {
     private dialog: MatDialog
   ) {}
 
-  linkProject(id: any) {
-    this.dialog.open(LinkProjectBoxComponent, {
+  ngOnInit(): void {
+    this.projectService.getLinks(this.route.snapshot.paramMap.get('id')).subscribe({
+      next: (response: any) => {
+        this.links = response.data
+      }
+    })
+  }
+
+  addLinkProject() {
+    this.dialog.open(AddLinkBoxComponent, {
       disableClose: true,
       autoFocus: false,
-      width: '40%',
+      width: '30%',
       height: 'auto',
       data: {
-        id: id,
+        id: this.route.snapshot.paramMap.get('id'),
+      },
+    })
+  }
+
+  linksProject() {
+    this.dialog.open(LinksProjectBoxComponent, {
+      disableClose: true,
+      autoFocus: false,
+      width: '30%',
+      height: 'auto',
+      data: {
+        links: this.links,
       },
     })
   }

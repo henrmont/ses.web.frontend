@@ -2,32 +2,23 @@
   <mat-card-header>
     <mat-icon mat-card-avatar>link</mat-icon>
     <mat-card-title>LINKS</mat-card-title>
+    <mat-card-subtitle *ngIf="links.length == 0">Nenhum colaborador cadastrado</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <mat-list>
-      <mat-list-item>
+      <mat-list-item *ngFor="let link of links">
         <mat-icon matListItemIcon>link</mat-icon>
-        <div matListItemTitle *ngIf="project.url_homologation">{{project.url_homologation}}</div>
-        <div matListItemTitle *ngIf="!project.url_homologation">Nenhuma informações encontrada</div>
-        <div matListItemLine>Servidor de homologação</div>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-icon matListItemIcon>link</mat-icon>
-        <div matListItemTitle *ngIf="project.url_production">{{project.url_production}}</div>
-        <div matListItemTitle *ngIf="!project.url_production">Nenhuma informações encontrada</div>
-        <div matListItemLine>Servidor de produção</div>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-icon matListItemIcon>link</mat-icon>
-        <div matListItemTitle *ngIf="project.url_git">{{project.url_git}}</div>
-        <div matListItemTitle *ngIf="!project.url_git">Nenhuma informações encontrada</div>
-        <div matListItemLine>Link do github</div>
+        <div matListItemTitle>{{link.url}}</div>
+        <div matListItemLine>{{link.description}}</div>
       </mat-list-item>
     </mat-list>
     <mat-divider></mat-divider>
   </mat-card-content>
   <mat-card-actions align="end">
-    <button mat-icon-button (click)="linkProject(project.id)">
+    <button mat-icon-button (click)="addLinkProject()">
+      <mat-icon>add</mat-icon>
+    </button>
+    <button mat-icon-button (click)="linksProject()" [disabled]="links.length == 0">
       <mat-icon>edit</mat-icon>
     </button>
   </mat-card-actions>

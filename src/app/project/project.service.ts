@@ -58,4 +58,21 @@ export class ProjectService {
   getNotifications(id: any): Observable<any> {
     return this.http.get<any>(`${environment.apiUrl}/notification/get/${id}`)
   }
+
+  getAllNotifications(id: any): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}/notification/get/all/${id}`)
+  }
+
+  // Links
+  addLink(data: any): Observable<any> {
+    return this.http.post<any>(`${environment.apiUrl}/link/add`, data)
+  }
+
+  getLinks(id: any): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}/link/get/${id}`)
+  }
+
+  deleteLink(id: any): Observable<any> {
+    return this.http.delete<any>(`${environment.apiUrl}/link/delete/${id}`)
+  }
 }

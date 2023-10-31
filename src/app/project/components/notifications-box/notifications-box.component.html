@@ -1,5 +1,5 @@
 <mat-toolbar class="title" color="accent">
-  <span>Colaboradores do Projeto</span>
+  <span>Notificações do Projeto</span>
   <button mat-icon-button aria-label="Example icon button with a home icon" mat-dialog-close>
     <mat-icon>close</mat-icon>
   </button>
@@ -20,29 +20,16 @@
   <!-- Name Column -->
   <ng-container matColumnDef="info">
     <!-- <th mat-header-cell *matHeaderCellDef> Name </th> -->
-    <td mat-cell *matCellDef="let element" style="width: 60%;">
+    <td mat-cell *matCellDef="let element" style="width: 80%;">
       <mat-list>
         <mat-list-item>
-          <div matListItemTitle>{{element.user.name}}</div>
-          <div matListItemLine>{{element.user.email}}</div>
+          <div matListItemTitle>{{element.user.name}} - {{element.created_at | date: 'dd/MM/YYYY'}}</div>
+          <div matListItemLine>{{element.message}}</div>
         </mat-list-item>
       </mat-list>
-    </td>
-  </ng-container>
-
-  <!-- Weight Column -->
-  <ng-container matColumnDef="action">
-    <!-- <th mat-header-cell *matHeaderCellDef> Weight </th> -->
-    <td mat-cell *matCellDef="let element" style="width: 20%;">
-      <button mat-icon-button color="warn" (click)="onDelete(element.id)" style="float: right;">
-        <mat-icon>delete_outline</mat-icon>
-      </button>
     </td>
   </ng-container>
 
   <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-
-
-

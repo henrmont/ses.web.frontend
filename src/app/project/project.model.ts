@@ -8,5 +8,4 @@ export interface Project {
   url_production?: string | null,
   url_git?: string | null,
   logo?: string | null,
-  collaborators?: Account[] | null,
 }

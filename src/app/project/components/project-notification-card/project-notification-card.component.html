@@ -15,7 +15,7 @@
     <mat-divider></mat-divider>
   </mat-card-content>
   <mat-card-actions align="end">
-    <button mat-icon-button (click)="notificationsProject()">
+    <button mat-icon-button (click)="notificationsProject()" [disabled]="notifications.length == 0">
       <mat-icon>more_horiz</mat-icon>
     </button>
   </mat-card-actions>
