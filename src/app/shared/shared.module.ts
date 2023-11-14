@@ -8,10 +8,10 @@ import { ImageCropperModule } from 'ngx-image-cropper';
   imports: [
     CommonModule,
     MaterialModule,
-    ImageCropperModule
+    ImageCropperModule,
   ],
   exports: [
-    ImageCropperModule
+    ImageCropperModule,
   ]
 })
 export class SharedModule { }

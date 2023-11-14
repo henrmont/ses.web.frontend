@@ -1,0 +1,58 @@
+<mat-toolbar class="title" color="accent">
+  <div>
+    <span>Gerenciar Tarefas</span>
+    <mat-icon>keyboard_double_arrow_right</mat-icon>
+    <span *ngIf="data.board == 1" style="color: rgb(200,50,50);">Backlog</span>
+    <span *ngIf="data.board == 2" style="color: rgb(200,50,50);">A fazer</span>
+    <span *ngIf="data.board == 3" style="color: rgb(200,50,50);">Em andamento</span>
+    <span *ngIf="data.board == 4" style="color: rgb(200,50,50);">Validação / Testes</span>
+    <span *ngIf="data.board == 5" style="color: rgb(200,50,50);">Finalizado</span>
+  </div>
+  <button mat-icon-button aria-label="Example icon button with a home icon" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="image">
+    <!-- <th mat-header-cell *matHeaderCellDef> No. </th> -->
+    <td mat-cell *matCellDef="let element" style="width: 20%;">
+      <div mat-card-avatar matListItemIcon style="display: flex; justify-content: center; margin: auto auto;">
+        <div style="width: 100px; height: 10px; border-radius: 5px; background-color: rgb(200,100,100);"></div>
+      </div>
+    </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="info">
+    <!-- <th mat-header-cell *matHeaderCellDef> Name </th> -->
+    <td mat-cell *matCellDef="let element" style="width: 60%;">
+      <mat-list>
+        <mat-list-item>
+          <div matListItemTitle>{{element.name}}</div>
+          <div matListItemLine>{{element.project.name}}</div>
+        </mat-list-item>
+      </mat-list>
+    </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="action">
+    <!-- <th mat-header-cell *matHeaderCellDef> Weight </th> -->
+    <td mat-cell *matCellDef="let element" style="width: 20%;">
+      <button mat-icon-button color="warn" (click)="onDelete(element.id)" style="float: right;">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" (click)="editTask(element.id, element.board)" style="float: right;">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

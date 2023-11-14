@@ -1,0 +1,127 @@
+<div cdkDropListGroup class="board">
+  <div style="text-align: center;">
+    <h2>Backlog</h2>
+    <div class="example-container mat-elevation-z4">
+      <div class="actions">
+        <button mat-icon-button color="primary" class="add" (click)="newTask(1)">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" class="add" (click)="managerTask(1)">
+          <mat-icon>settings</mat-icon>
+        </button>
+      </div>
+      <mat-divider></mat-divider>
+      <div
+        cdkDropList
+        [cdkDropListData]="backlog"
+        class="example-list"
+        (cdkDropListDropped)="drop($event, 1)">
+        <div class="example-box mat-elevation-z2" *ngFor="let item of backlog" cdkDrag [cdkDragDisabled]="item.disabled" (click)="Task(item.id)">
+          <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+          <app-task-card [data]="item"></app-task-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center;">
+    <h2>A fazer</h2>
+    <div class="example-container mat-elevation-z4">
+      <div class="actions">
+        <button mat-icon-button color="primary" class="add" (click)="newTask(2)">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" class="add">
+          <mat-icon>settings</mat-icon>
+        </button>
+      </div>
+      <mat-divider></mat-divider>
+      <div
+        cdkDropList
+        [cdkDropListData]="todo"
+        class="example-list"
+        (cdkDropListDropped)="drop($event, 2)">
+        <div class="example-box mat-elevation-z2" *ngFor="let item of todo" cdkDrag [cdkDragDisabled]="item.disabled" (click)="Task(item.id)">
+          <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+          <app-task-card [data]="item"></app-task-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center;">
+    <h2>Em andamento</h2>
+    <div class="example-container mat-elevation-z4">
+      <div class="actions">
+        <button mat-icon-button color="primary" class="add" (click)="newTask(3)">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" class="add">
+          <mat-icon>settings</mat-icon>
+        </button>
+      </div>
+      <mat-divider></mat-divider>
+      <div
+        cdkDropList
+        [cdkDropListData]="progress"
+        class="example-list"
+        (cdkDropListDropped)="drop($event, 3)">
+        <div class="example-box mat-elevation-z2" *ngFor="let item of progress" cdkDrag [cdkDragDisabled]="item.disabled" (click)="Task(item.id)">
+          <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+          <app-task-card [data]="item"></app-task-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center;">
+    <h2>Validação / Testes</h2>
+    <div class="example-container mat-elevation-z4">
+      <div class="actions">
+        <button mat-icon-button color="primary" class="add" (click)="newTask(4)">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" class="add">
+          <mat-icon>settings</mat-icon>
+        </button>
+      </div>
+      <mat-divider></mat-divider>
+      <div
+        cdkDropList
+        [cdkDropListData]="validating"
+        class="example-list"
+        (cdkDropListDropped)="drop($event, 4)">
+        <div class="example-box mat-elevation-z2" *ngFor="let item of validating" cdkDrag [cdkDragDisabled]="item.disabled" (click)="Task(item.id)">
+          <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+          <app-task-card [data]="item"></app-task-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center;">
+    <h2>Finalizado</h2>
+    <div class="example-container mat-elevation-z4">
+      <div class="actions">
+        <button mat-icon-button color="primary" class="add" (click)="newTask(5)">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" class="add">
+          <mat-icon>settings</mat-icon>
+        </button>
+      </div>
+      <mat-divider></mat-divider>
+      <div
+        cdkDropList
+        [cdkDropListData]="done"
+        class="example-list"
+        (cdkDropListDropped)="drop($event, 5)">
+        <div class="example-box mat-elevation-z2" *ngFor="let item of done" cdkDrag [cdkDragDisabled]="item.disabled" (click)="Task(item.id)">
+          <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+          <app-task-card [data]="item"></app-task-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -32,6 +32,12 @@ const routes: Routes = [
     loadChildren: () => import('./project/project.module').then(m => m.ProjectModule),
     canActivate: [authGuard],
     resolve: {resolve: authResolve}
+  },
+  {
+    path: 'tarefas',
+    loadChildren: () => import('./tasks/tasks.module').then(m => m.TasksModule),
+    canActivate: [authGuard],
+    resolve: {resolve: authResolve}
   }
 ];
 

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './notifications-box.component.html',
   styleUrls: ['./notifications-box.component.scss']
 })
-export class NotificationsBoxComponent implements OnInit {
+export class NotificationsBoxComponent {
 
   displayedColumns: string[] = ['image', 'info'];
   dataSource = this.data.notifications;
@@ -21,9 +21,5 @@ export class NotificationsBoxComponent implements OnInit {
     private sharedService: SharedService,
     private router: Router
   ) {}
-
-  ngOnInit(): void {
-    console.log(this.dataSource)
-  }
 
 }

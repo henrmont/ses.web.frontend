@@ -1,0 +1,60 @@
+.label {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+
+  .stick {
+    width: 100px;
+    height: 10px;
+    border-radius: 5px;
+  }
+
+  mat-icon {
+    color: rgb(150,150,150) !important;
+  }
+}
+
+.desc {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  div {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    color: rgb(150,150,150) !important;
+    font-size: 12px !important;
+  }
+
+  mat-icon {
+    margin-right: 5px;
+  }
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // margin-bottom: 10px;
+
+  div {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    color: rgb(150,150,150) !important;
+  }
+
+  mat-icon {
+    margin-right: 5px;
+  }
+}

@@ -19,6 +19,14 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTableModule} from '@angular/material/table';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
+
+
+import {DragDropModule} from '@angular/cdk/drag-drop';
+
 
 
 
@@ -50,7 +58,11 @@ import {MatTableModule} from '@angular/material/table';
     MatChipsModule,
     MatCardModule,
     MatProgressBarModule,
-    MatTableModule
+    MatTableModule,
+    DragDropModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule
   ],
   exports: [
     MatToolbarModule,
@@ -70,7 +82,11 @@ import {MatTableModule} from '@angular/material/table';
     MatChipsModule,
     MatCardModule,
     MatProgressBarModule,
-    MatTableModule
+    MatTableModule,
+    DragDropModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule
   ]
 })
 export class MaterialModule { }

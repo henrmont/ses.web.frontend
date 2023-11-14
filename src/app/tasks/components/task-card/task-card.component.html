@@ -1,0 +1,36 @@
+<div class="label">
+  <div class="stick" [style]="'background-color:'+'#c3c4f5'"></div>
+  <mat-icon *ngIf="data.disabled">lock</mat-icon>
+  <mat-icon *ngIf="!data.disabled">done</mat-icon>
+</div>
+<div class="desc">
+  <mat-icon>chevron_right</mat-icon>
+  {{data.name}}
+</div>
+<mat-divider></mat-divider>
+<div class="time">
+  <div>
+    <mat-icon>play_arrow</mat-icon>
+    <span>{{data.start_at | date: 'dd/MM/YYYY'}}</span>
+  </div>
+  <div>
+    <mat-icon>stop</mat-icon>
+    <span *ngIf="data.end_at">{{data.end_at | date: 'dd/MM/YYYY'}}</span>
+    <span *ngIf="!data.end_at">Indeterminado</span>
+  </div>
+</div>
+<mat-divider></mat-divider>
+<div class="status">
+  <div>
+    <mat-icon>message</mat-icon>
+    1
+  </div>
+  <div>
+    <mat-icon>attach_file</mat-icon>
+    2
+  </div>
+  <div>
+    <mat-icon>groups</mat-icon>
+    3
+  </div>
+</div>
